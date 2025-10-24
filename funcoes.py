@@ -48,7 +48,7 @@ def afundados(frota, tabuleiro):
                     resultado += 1
     return resultado
 
-# Validando a posição do navio a ser adicionado
+# Validando a posição dos navios
 def posicao_valida(frota, linha, coluna, orientacao, tamanho):
     posicao = define_posicoes(linha, coluna, orientacao, tamanho)
     if posicao[-1][0] > 9 or posicao[-1][1] > 9:
