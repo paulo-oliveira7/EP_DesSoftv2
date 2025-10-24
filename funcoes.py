@@ -47,3 +47,17 @@ def afundados(frota, tabuleiro):
                 if count == len(embarcacao):
                     resultado += 1
     return resultado
+
+# Validando a posição do navio a ser adicionado
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    posicao = define_posicoes(linha, coluna, orientacao, tamanho)
+    if posicao[-1][0] > 9 or posicao[-1][1] > 9:
+        return False
+
+    for valores in frota.values():
+        for embarcacao in valores:
+            for i in range(len(posicao)):
+                if posicao[i] in embarcacao:
+                    return False
+    
+    return True
