@@ -1,5 +1,4 @@
 # Definindo a posição dos navios
-
 def define_posicoes(linha, coluna, orientacao, tamanho):
     posicoes = []
     for i in range(tamanho):
@@ -10,7 +9,6 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
     return posicoes
 
 # Preenchendo a frota (armazenando as posições dos navios)
-
 def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
     if nome_navio in frota:
         frota[nome_navio].append(define_posicoes(linha, coluna, orientacao, tamanho))
@@ -24,4 +22,15 @@ def faz_jogada(tabuleiro, linha, coluna):
         tabuleiro[linha][coluna] = '-'
     elif tabuleiro[linha][coluna] == 1:
         tabuleiro[linha][coluna] = 'X'
+    return tabuleiro
+
+# Função que posiciona a frota no tabuleiro
+def posiciona_frota(frota):
+    tabuleiro = [[0]*10]
+    for i in range(9):
+        tabuleiro.append([0]*10)
+    for valores in frota.values():
+        for embarcacao in valores:
+            for i in range(len(embarcacao)):
+                tabuleiro[embarcacao[i][0]][embarcacao[i][1]] = 1
     return tabuleiro
