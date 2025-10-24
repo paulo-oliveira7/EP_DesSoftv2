@@ -34,3 +34,16 @@ def posiciona_frota(frota):
             for i in range(len(embarcacao)):
                 tabuleiro[embarcacao[i][0]][embarcacao[i][1]] = 1
     return tabuleiro
+
+# Função que conta quantos navios já foram afundados
+def afundados(frota, tabuleiro):
+    resultado = 0
+    for valores in frota.values():
+        for embarcacao in valores:
+            count = 0
+            for i in range(len(embarcacao)):
+                if tabuleiro[embarcacao[i][0]][embarcacao[i][1]] == 'X':
+                    count += 1
+                if count == len(embarcacao):
+                    resultado += 1
+    return resultado
