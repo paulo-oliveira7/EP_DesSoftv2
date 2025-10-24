@@ -1,5 +1,6 @@
+# Definindo a posição dos navios
+
 def define_posicoes(linha, coluna, orientacao, tamanho):
-    #posicoes = [[linha, coluna]]*tamanho
     posicoes = []
     for i in range(tamanho):
         if orientacao == 'horizontal':
@@ -7,3 +8,12 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
         else:
             posicoes.append([linha+i, coluna])
     return posicoes
+
+# Preenchendo a frota (armazenando as posições dos navios)
+
+def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
+    if nome_navio in frota:
+        frota[nome_navio].append(define_posicoes(linha, coluna, orientacao, tamanho))
+    else:
+        frota[nome_navio] = [define_posicoes(linha, coluna, orientacao, tamanho)]
+    return frota
